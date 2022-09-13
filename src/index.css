@@ -1,0 +1,11 @@
+img {
+    position: absolute;
+    top: 90px;
+    left: 700px;
+    margin: 0 auto;
+}
+#logo {
+
+    width: 8rem;
+    height: 8rem;
+}

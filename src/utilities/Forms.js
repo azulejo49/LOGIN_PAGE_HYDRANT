@@ -5,7 +5,7 @@ class Form {
      * @param str 
      * @returns boolean
      */
-    static validEmail(str) {
+    static validUsername(str) {
         let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
         return regex.test(str);
     }
@@ -43,12 +43,12 @@ class Form {
                         [key[0]]: [`The ${key[0]} is required.`]
                     });
                 } else {
-                    if ('isEmail' in key[1] && key[1].isEmail) {
-                        let isValidEmail = Form.validEmail(key[1].value);
+                    if ('isUsername' in key[1] && key[1].isUsername) {
+                        let isValidUsername = Form.validUsername(key[1].value);
 
-                        if (!isValidEmail) {
+                        if (!isValidUsername) {
                             results.push({
-                                [key[0]]: [`The ${key[0]} must be valid email.`]
+                                [key[0]]: [`The ${key[0]} must be valid username.`]
                             });
                         }
                     }
@@ -59,12 +59,12 @@ class Form {
                         });
                     }
                 }
-            } else if ('isEmail' in key[1]) {
-                let isValidEmail = Form.validEmail(key[1].value);
+            } else if ('isusername' in key[1]) {
+                let isValidUsername = Form.validUsername(key[1].value);
 
-                if (!isValidEmail) {
+                if (!isValidUsername) {
                     results.push({
-                        [key[0]]: [`The ${key[0]} must be valid email`]
+                        [key[0]]: [`The ${key[0]} must be valid username`]
                     });
                 }
             } else if ('minLength' in key[1] && Form.minLength(key[1].value, key[1].minLength)) {

@@ -4,8 +4,8 @@ import Form from '../../utilities/Forms'
 
 const Register = () => {
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const [name, setName] = useState(''); 
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [validate, setValidate] = useState({});
     const [showPassword, setShowPassword] = useState(false);
@@ -14,14 +14,14 @@ const Register = () => {
         let isValid = true;
 
         let validator = Form.validator({
-            name: {
+         /*    name: {
                 value: name,
                 isRequired: true,
-            },
-            email: {
-                value: email,
+            }, */
+            username: {
+                value: username,
                 isRequired: true,
-                isEmail: true
+                isUsername: true
             },
             password: {
                 value: password,
@@ -48,7 +48,7 @@ const Register = () => {
         if (validate) {
             setValidate({});
             setName('');
-            setEmail('');
+            setUsername('');
             setPassword('');
             alert('Successfully Register User');
         }
@@ -76,33 +76,33 @@ const Register = () => {
                         <div className="auth-form-container text-start">
                             <form className="auth-form" method="POST" onSubmit={register} autoComplete={'off'}>
 
-                                <div className="name mb-3">
+                           {/*      <div className="name mb-3">
                                     <input type="text"
                                         className={`form-control ${validate.validate && validate.validate.name ? 'is-invalid ' : ''}`}
                                         id="name"
                                         name="name"
                                         value={name}
                                         placeholder="Name"
-                                        onChange={(e) => setName(e.target.value)}
+                                        onChange={(e) => setName(e.target.value)} 
                                     />
 
                                     <div className={`invalid-feedback text-start ${(validate.validate && validate.validate.name) ? 'd-block' : 'd-none'}`} >
                                         {(validate.validate && validate.validate.name) ? validate.validate.name[0] : ''}
                                     </div>
-                                </div>
+                                </div> */}
 
-                                <div className="email mb-3">
-                                    <input type="email"
+                                <div className="username mb-3">
+                                    <input type="username"
                                         className={`form-control ${validate.validate && validate.validate.email ? 'is-invalid ' : ''}`}
-                                        id="email"
-                                        name="email"
-                                        value={email}
-                                        placeholder="Email"
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        id="username"
+                                        name="username"
+                                        value={username}
+                                        placeholder="username"
+                                        onChange={(e) => setUsername(e.target.value)}
                                     />
 
-                                    <div className={`invalid-feedback text-start ${(validate.validate && validate.validate.email) ? 'd-block' : 'd-none'}`} >
-                                        {(validate.validate && validate.validate.email) ? validate.validate.email[0] : ''}
+                                    <div className={`invalid-feedback text-start ${(validate.validate && validate.validate.username) ? 'd-block' : 'd-none'}`} >
+                                        {(validate.validate && validate.validate.username) ? validate.validate.username[0] : ''}
                                     </div>
                                 </div>
 
@@ -142,3 +142,5 @@ const Register = () => {
 }
 
 export default Register;
+
+
