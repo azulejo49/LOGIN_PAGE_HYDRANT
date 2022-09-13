@@ -1,0 +1,87 @@
+.cover{
+   position: absolute;
+   background-color: var(--header-background);    
+   height: 120px;
+   width: 50px;
+   z-index: 6;
+   right: 0;
+   top: calc(var(--nav-height) + var(--Screen-Header-Height));
+}
+
+
+.TableHandleWrapper{
+   /* position: relative; */
+   display: grid;
+   height: 320px;
+   color: var(--textColor);    
+   background: var(--box-background);
+   font-size: 1.2rem;
+   font-weight: normal;   
+}
+
+.grid1{
+   grid-template-columns: auto ; 
+}
+.grid2{
+   grid-template-columns: auto 0 auto; 
+}
+.grid3{
+   grid-template-columns: auto 0 auto 0 auto; 
+}
+
+
+.TableHandleWrapper hr{    
+   border: 1px solid var(--light-gray);    
+   margin: 0;
+}
+
+.TableHandleWrapper .eventHistory .eventHistoryGridWraper{    
+   max-height: calc(100% - 85px);    
+}
+
+
+.eventTrig1 {
+   color: var(--Flow);
+   display: flex;
+   font-weight:bold;
+   align-items: center;
+}
+
+.eventTrig2 {
+   /* background: var(--ReverseFlow) !important; */
+   color: var(--ReverseFlow);
+   display: flex;
+   font-weight:bold;
+   align-items: center;
+}
+
+
+.eventTrig3 {
+   color: var(--vandalisem);
+   display: flex;
+   font-weight:bold;
+   align-items: center;
+}
+
+
+.eventTrig5 {
+   color: var(--battery);
+   display: flex;
+   font-weight:bold;
+   align-items: center;
+}
+
+
+.eventTrig6 {
+   color: var(--signal);
+   display: flex;
+   font-weight:bold;
+   align-items: center;
+}
+
+.eventTrig7 {
+   color: var(--pressure);
+   display: flex;
+   font-weight:bold;
+   align-items: center;
+}

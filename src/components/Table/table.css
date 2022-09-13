@@ -1,0 +1,10 @@
+
+.MuiTable-root{
+    right:var(--Side-Bar-Width);
+    max-width: calc(100% - var(--Side-Bar-Width) );
+    position: relative;
+}
+
+.MuiCollapse-wrapper{
+position: relative;
+}

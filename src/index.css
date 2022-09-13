@@ -1,0 +1,1489 @@
+/*************************************
+ ***  Made By Yohay Hackam         ***
+ ***  mail: Yoman_321@hotmail.com  ***
+ ***  054-2616626                  ***
+ *************************************/
+/******************* variable declaration *************************************/
+
+:root {
+   --white: #FFFFFF;
+   /*canvas ,nav,right-box */
+   --dark-gray: #5A5B61;
+   /*text -menu-closed */
+   --gray: #C9CCD1;
+   /*text inactivate ,notes */
+   --light-gray: #E8EBF2;
+   /*open-event-group */
+   --very-light-gray: #F9F9F9;
+   /*event background for unselected event*/
+   --green: #04FD8C;
+   /*bth-hover-back,btn-border */
+   --blue: #1E2532;
+   /*nav-bacground, text ,bth-hover-back,btn-border */
+   /* --red: #C01c2e; */
+   --red: #EF2B16;
+   /* revers Flow*/
+   --orange: #f76c10;
+   /* counter */
+
+   --ReverseFlow:#8e221c ;
+   --Flow: #67BED9;
+   --vandalisem: #FFC20A;
+   --pressure: #F76C10;
+   --signal: #18C772;
+   --battery: #F146EB;
+   --Reverse-Flow-Background:#FFEBEB;
+
+   --NewEvents-Group-Count: 0;
+   --OpenEvents-Group-Count: 0;
+   --nav-height: 65px;
+   --Screen-Header-Height: 60px;
+   --Side-Bar-Width: 60px;
+   --Icon-Bar-Offset:-44px;
+   --Event-Hight: 3.75rem;
+   --Event-Details-Height: 415px;
+
+
+   --nav-back-color: var(--very-light-gray);
+
+   --canvas-background: var(--white);
+   --box-background: var(--very-light-gray);
+   --activeBox-background: var(--very-light-gray);
+   --menu-background: var(--white);
+   --header-background: var(--blue);
+   --hrInBox: var(--blue);
+
+   --eventHover: var(--gray);
+   --btnHover: var(--green);
+   --btnText: var(--blue);
+   --btnBorder: var(--green);
+   --BtnBackground: rgb(255, 255, 255);
+
+   --textColor: black;
+   --textActiveColor:black;
+   --textInactiveColor: var(--gray);
+   --textHeaderColor: var(--green);
+
+   --active-eventGruop-background: var(--activeBox-background);
+   --focusedEvent-background: var(--green);
+
+   --reversFlow--bacground: var(--red);
+   --counter-background: var(--orange);
+   font-family: Assistant;
+}
+
+/***************** Defult Settings  **************************/
+
+*,
+::before,
+::after {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+}
+
+
+body {
+   height: 100vh;
+   background-color: var(--canvas-background);
+   overflow: hidden;
+}
+
+/* label {
+   transition: all 0.3s;
+   cursor: pointer;
+} */
+
+hr {
+   border: 1px solid var(--hrInBox);
+   margin: 0 0.5rem;
+}
+
+a {
+   text-decoration: none;
+   color: var(--textColor);
+
+}
+
+i {
+   color: var(--gray);
+   font-size: 1rem;
+}
+
+
+textarea,
+select,
+input:not([type="radio"]) {
+   font-family: Assistant;
+   font-size: 1.2rem;
+   color: var(--textColor);
+   background: var(--white);
+   flex-wrap: nowrap;
+}
+
+textarea,
+select,
+input:not(.MuiInputBase-input) {
+   border: 1px solid var(--light-gray);
+   margin: 0 1rem;
+   border-radius: 4px;
+   resize: none;
+   padding: 0.2rem;
+}
+
+
+
+/* input[type="text"] {
+   min-width: 0;
+} */
+input[type="checkbox"] {
+   margin: 0 0.5rem;
+}
+
+
+*:focus,
+*:focus-visible {
+   color: var(--textActiveColor);
+   outline-color: var(--btnBorder);
+
+}
+
+option {
+   background-color: var(--activeBox-background);
+   color: var(--textColor);
+}
+
+*::placeholder {
+   color: var(--textInactiveColor);
+   background-color: var(--white);
+}
+
+h2 {
+   text-align: center;
+   font-weight: normal;
+}
+
+h3 {
+   font-size: 1.8rem;
+   text-align: center;
+   font-weight: normal;
+}
+
+h4 {
+   font-size: 1.6rem;
+   text-align: center;
+   font-weight: normal;
+   margin-inline: auto;
+}
+
+h5 {
+   font-size: 1.2rem;
+   font-weight: bold;
+}
+
+
+.btn {
+   display: flex;
+   flex-wrap: nowrap;
+   /* flex-shrink: 0; */
+   padding: 8px 24px;
+   margin: 0.5rem;
+   width: min-content;
+   line-height: 1.4rem;
+   font-size: 1.4rem;
+   color: var(--btnText);
+   background-color: var(--BtnBackground);
+   border-radius: 15px;
+   border: 1px solid var(--btnBorder);
+   transition: all 0.3s ease;
+   align-items: center;
+}
+
+
+.warning {
+   color: var(--red);
+}
+
+.window {
+   min-width: 250px;
+   overflow: hidden;
+   margin: 0 auto;
+   height: fit-content;
+   color: var(--textColor);
+   font-size: 1.2rem;
+   border-radius: 40px 40px 10px 10px;
+   transition: all 0.6s ease-in-out;
+   position: relative;
+   box-shadow: 0px 4px 4px 0px var(--gray);
+   background: var(--box-background);
+}
+
+header {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   justify-content: flex-end;
+   background-color: var(--white);
+   user-select: none;
+   height: var(--Screen-Header-Height);
+}
+
+.window>header {
+   color: var(--textHeaderColor);
+   background-color: var(--header-background);
+   display: flex;
+   font-size: 1.7rem;
+   line-height: 3.5rem;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+
+.window label {
+   margin-left: 0.5rem;
+}
+
+.window fieldset {
+   display: grid;
+   grid-template-columns: auto 1fr;
+   /* text-align: start; */
+   font-size: 1.4rem;
+   margin: 0.5rem;
+   justify-items: end;
+   border: none;
+}
+
+fieldset .clientLogo {
+   margin: 0 auto;
+   max-height: 100px;
+   max-width: 100px;
+}
+
+.window .clientLogo {
+   margin: 0 auto;
+   max-height: 100px;
+   max-width: 150px;
+   height: 100px;
+}
+
+
+.hydrantImage {
+   height: 150px;
+   max-width: 150px;
+
+}
+
+.background-block-dark{
+   position: fixed;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #00000050;
+   width: 100vw;
+   height: 100vh;
+   top: 0;
+   left: 0;
+   z-index: 50;
+ }
+.background-reverse{
+   position: fixed;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #00000050;
+   width: 100vw;
+   height: 100vh;
+   top: 0;
+   left: 0;
+   z-index: 50;
+   border: 20px solid var(--red)
+ }
+ 
+
+/***************************** HOVER  ***************************/
+
+
+/* Event Group except selected Group hover*/
+.eventGroupHeader:not(input[type="radio"]:checked +.eventGroup > .eventGroupHeader):hover,
+/*  Tab Select hover */
+.tabSelect>input[type="radio"]:not(:checked)+label:hover,
+/* Event Hover */
+.event:hover,
+/* Event Row Hover */
+.eventRow:not(.focusedRaw,.disabled):hover,
+input:hover,
+select:hover,
+label[for]:hover {
+   cursor: pointer;
+   color: var(--textActiveColor);
+}
+
+
+
+/* Event Group except selected Group hover*/
+.eventGroupHeader:not(input[type="radio"]:checked +.eventGroup > .eventGroupHeader):hover {
+   font-weight: 500;
+   /* background-color: var(--light-gray) !important; */
+
+}
+
+/* Button hover */
+.btn:hover {
+   cursor: pointer;
+   color: var(--textActiveColor);
+   transform: translateY(+1px);
+   background: var(--btnHover);
+}
+
+/* Alert Hover */
+.alert:hover,
+/* Event Hover */
+.event:hover,
+/* Event Row Hover */
+.eventRow:not(.focusedRaw,.disabled):hover {
+   background: var(--eventHover);
+}
+.eventRow:not(.focusedRaw,.disabled):hover *[disabled]{
+   background: unset;
+   color:var(--very-light-gray);
+}
+
+
+
+/* Open & Close screen marker hover */
+.dropDownMark:hover,
+.dropUpMark:hover {
+   filter: progid:DXImageTransform.Microsoft.gradient(enabled)
+}
+
+
+
+/************************** Main Screens ******************************/
+.canvas {
+   display: flex;
+   height: calc(100vh - var(--nav-height));
+   background-color: var(--canvas-background);
+   flex-grow: 1;
+   flex-shrink: 1;
+   border-style: none;
+}
+
+/************  active Screens  **************/
+.activeBox {
+   background-color: var(--activeBox-background);
+   /* border-top-left-radius: 10px;
+   border-top-right-radius: 10px; */
+}
+
+.menuBox {
+   background-color: var(--menu-background);
+   /* border-top-left-radius: 10px;
+   border-top-right-radius: 10px; */
+}
+
+
+
+/******************************** Map Screen ************************************/
+#mapContainer {
+   width: 100%;
+   margin: 40px 5px 5px 5px;   
+   z-index: unset;
+   border-radius: 40px 40px 10px 10px;
+   overflow: hidden; 
+}
+
+/******************************  MAP ***************************/
+.mapDisplayPort {
+   height: 100%;
+   transition: height .6s ease-in-out;
+   /* border-radius: 40px 40px 10px 10px;
+   overflow: hidden; */
+}
+
+/************ Map when Event Details Screen open ****************/
+.mapEventDistailsDisplayPort {
+   height: calc(100% - var(--Event-Details-Height));
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+
+}
+
+
+
+/* ****************** Vertical icon bar background **************************  */
+
+.eventIcon {
+   width: 25px;
+   height: 25px;   
+   /* position: relative; */
+   /* right: -40px; */
+   z-index: 5;
+}
+
+.eventValue {
+   font-size: 1rem;
+}
+
+.alertHydantId,
+.eventHydantId {
+   font-size: .9rem;
+   background-color: var(--header-background);
+   color: var(--gray);
+   position: absolute;
+   right:var(--Icon-Bar-Offset);
+   z-index: 5;
+}
+
+
+/********************** main Screen Alerts/Events Container ****************************/
+#rightBox {
+   height: 100%;
+   max-width: calc(300px + var(--Side-Bar-Width));
+}
+
+/***************** TAB Button area ************************/
+.tabSelect {
+   margin-right: calc(var(--Side-Bar-Width));
+   background: var(--box-background-color);
+   color: var(--textInactiveColor);
+   display: flex;
+   justify-content: space-evenly;
+   position: relative;
+}
+
+.tab {
+   text-align: center;
+   font-size: 1.7rem;
+   font-weight: normal;
+   flex-grow: 1;
+
+   border-bottom: 3px solid transparent;
+}
+
+.rightTab {
+   border-top-right-radius: 10px;
+}
+
+.leftTab {
+   border-top-left-radius: 10px;
+}
+
+.tabSelect hr {
+   margin: 0.3rem 0px;
+   border-color: var(--activeBox-background);
+}
+
+/******************** Selected Tab Lable*************************/
+.tabSelect>input[type="radio"]:checked+label {
+   /* background-color: var(--activeBox-background); */
+   color: var(--textActiveColor);
+   border-bottom: 4px solid var(--blue);
+}
+
+
+/************************* Events Type Groups ***********************/
+.eventGroup {
+   position: relative;
+   /* overflow:hidden; */
+   /* max-height: 3.7rem ; */
+   /* height: fit-content; */
+   color: var(--textColor);
+
+   /* margin: 1px 0px; */
+   /* border-radius: 10px; */
+   transition: max-height .3s ease;
+
+   /* transition:max-height .7s ease-in-out ; */
+}
+
+
+
+.dropDownMark,
+.dropUpMark {
+   cursor: pointer;
+   font-size: 1rem;
+   padding: 1rem;
+   border-radius: 10px;
+   border: none;
+   color: inherit;
+}
+
+.dropUpMark {
+   display: none
+}
+
+
+
+
+
+/************** Selected Event Group type  **********************/
+input[type="radio"]:checked+.eventGroup {
+   background: var(--active-eventGruop-background);
+   /* max-height: calc(calc(100vh - 100px) - calc(var(--visibleGroupCount) * 3.7rem)); */
+   transition: max-height .3s ease-in;
+}
+
+input[type="radio"]:checked+.eventGroup .dropDownMark {
+   display: none;
+}
+
+input[type="radio"]:checked+.eventGroup .dropUpMark {
+   display: flex;
+}
+input[type="radio"]:not(:checked)+.eventGroup .eventIcon {   
+   filter: unset !important;
+}
+
+/******** Special for Event Group Reverse Flow direction *************/
+#reversFlows:not(.eventHydantId) {
+   color: var(--white) !important;
+   background: var(--ReverseFlow) !important;
+}
+
+.HeaderTrig2 {
+   background: var(--ReverseFlow) !important;
+   color: var(--white);
+}
+
+.focusedRawTrig2 {
+   background: var(--ReverseFlow);
+   color: var(--white) !important;
+}
+
+
+#abnormalFlows:not(.eventHydantId) {
+   background: var(--Flow);
+   color: var(--Flow);
+}
+
+.HeaderTrig1 {
+   color: var(--Flow);
+}
+
+.focusedRawTrig1 {
+   background: var(--Flow);
+}
+
+
+#vandalisem:not(.eventHydantId) {
+   background: var(--vandalisem);
+   color: var(--vandalisem);
+}
+
+.HeaderTrig3 {
+   color: var(--vandalisem);
+}
+
+.focusedRawTrig3 {
+   background: var(--vandalisem);
+}
+
+
+
+#pipePresure:not(.eventHydantId) {
+   background: var(--pressure);
+   color: var(--pressure);
+}
+
+.HeaderTrig7 {
+   color: var(--pressure);
+}
+
+.focusedRawTrig7 {
+   background: var(--pressure);
+}
+
+
+#noSignal:not(.eventHydantId) {
+   background: var(--signal);
+   color: var(--signal);
+}
+
+.HeaderTrig6 {
+   color: var(--signal);
+}
+
+.focusedRawTrig6 {
+   background: var(--signal);
+}
+
+
+#noBattary:not(.eventHydantId) {
+   background: var(--battery);
+   color: var(--battery);
+}
+
+.HeaderTrig5 {
+   color: var(--battery);
+}
+
+.focusedRawTrig5 {
+   background: var(--battery);
+}
+
+/********* Grouped Events Header  **************/
+.eventGroupHeader {
+   margin-right: var(--Side-Bar-Width);
+   display: flex;
+   text-align: start;
+   align-items: center;
+   font-size: 1.5rem;
+   line-height: 2rem;
+   height: var(--Screen-Header-Height);
+   justify-content: space-between;
+   color: var(--textColor) !important;
+   /* background-color: var(--menu-background); */
+   /* overflow: hidden; */
+   transition: color 0.3s ease;
+}
+
+.eventGroupHeader:not(#reversFlows) {
+   background: var(--menu-background);
+}
+
+.eventGroupHeaderWrapper {
+   position: relative;
+   right: var(--Icon-Bar-Offset);
+   display: flex;
+   align-items: center;
+}
+
+.HeaderWrapper {
+   margin: 0 1rem;
+   display: flex;
+   align-items: baseline;
+}
+
+/************* Group Event Counter ***************/
+.eventGroupCounter {
+   /* position: absolute; */
+   /* top:5px; */
+   right: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--counter-background);
+   color: var(--white);
+   text-align: center;
+   margin: 0 5px;
+   border-radius: 25px;
+   padding: 0 6px;
+   height: 23px;
+   min-width: 23px;
+   font-size: 1.2rem;
+   /* font-weight: bold; */
+   z-index: 5;
+}
+
+
+/********** Selected event group header**********/
+input[type="radio"]:checked+.eventGroup>.eventGroupHeader {
+   color: inherit !important;
+   background: var(--header-background) !important;
+}
+
+
+/********** Events container for events in Group ************/
+.eventGroupList {
+   display: none;
+   flex-direction: column;
+   overflow-x: hidden;
+   overflow-y: auto;
+   scroll-snap-type: y mandatory;
+}
+
+/********* Selected Event Group container ************/
+#newEventsTab input[type="radio"]:checked+.eventGroup>.eventGroupList {
+   display: flex;
+   visibility: visible;
+   overflow-y: auto;
+   min-height: var(--Event-Hight);
+   max-height: calc(calc(100vh - 165px) - calc(var(--NewEvents-Group-Count) * var(--Event-Hight)));
+}
+
+
+/********* Selected Event Group container ************/
+#openEventsTab input[type="radio"]:checked+.eventGroup>.eventGroupList {
+   display: flex;
+   visibility: visible;
+   overflow-y: auto;
+   min-height: var(--Event-Hight);
+   max-height: calc(calc(100vh - 190px) - calc(var(--OpenEvents-Group-Count) * 3.5rem));
+}
+
+
+
+
+/********************* Event *************************/
+.event {
+   margin-right: var(--Side-Bar-Width);
+   position: relative;
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+   white-space: nowrap;
+   color: var(--textColor);
+   font-size: 1.2rem;
+   text-align: start;
+   min-height: var(--Event-Hight);
+   scroll-snap-align: start;
+   height: min-content;
+   padding: 4px;
+   background-color: var(--active-eventGruop-background);
+   border-bottom: solid 3px transparent;
+   transition: all .3s ease, font 0s;
+
+}
+
+#alertsTab {
+   overflow: auto;
+   height: calc(100% - 55px);
+   scroll-snap-type: y mandatory;
+
+}
+
+.alert {
+   margin-right: var(--Side-Bar-Width);
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   white-space: nowrap;
+   color: var(--textColor);
+   font-size: 1.2rem;
+   text-align: start;
+   padding: 4px;
+   background-color: var(--active-eventGruop-background);
+   transition: all .3s ease, font 0s;
+   scroll-snap-align: start;
+
+}
+
+.eventInfoLine {
+   flex: auto;
+}
+
+.focusedEvent,
+.focusedEvent:hover {
+   color: var(--textActiveColor);
+   cursor: default;
+   background-color: inherit;
+   border-bottom: solid 3px var(--green);
+}
+
+.focusedEvent #reversFlows {
+   color: var(--ReverseFlow) !important;
+}
+
+.focusedEvent #abnormalFlows {
+   color: var(--Flow) !important;
+}
+
+.focusedEvent #vandalisem {
+   color: var(--vandalisem) !important;
+}
+
+.focusedEvent #pipePresure {
+   color: var(--pressure) !important;
+}
+
+.focusedEvent #noSignal {
+   color: var(--signal) !important;
+}
+
+.focusedEvent #noBattary {
+   color: var(--battery) !important;
+}
+
+/************************************************************************************************/
+/************************************** Event Info & Handling  **********************************/
+/************************************************************************************************/
+
+
+/****************** More Hydrent Events (Right) tab grid **********************/
+
+
+.eventRawsContainer {
+
+   max-height: 12rem;
+   overflow-y: auto;
+   scroll-snap-type: y mandatory;}
+
+.eventRow,
+.hydrantEventsGrid {
+   display: grid;
+   padding: 0 1.5rem;
+   margin: 2px 0.5rem;
+   text-align: start;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   align-items: center;
+
+}
+
+.eventRow {
+   height: 2.2rem;
+   margin-bottom: 4px;
+   border-radius: 25px;
+   color: var(--textColor);
+
+}
+
+.focusedRaw {
+   color: var(--textActiveColor);
+}
+
+.focusedRaw label {
+   display: none;
+}
+
+
+
+
+
+
+
+/********** Event Info & Handling screen *********/
+
+.EventDetailsWraper {
+   overflow: hidden;
+   color: var(--textColor);
+   background: var(--box-background);
+   font-size: 1.2rem;
+   z-index: 3;
+   border-radius: 40px 40px 10px 10px;
+   position: relative;
+   box-shadow: 0px 3px 6px 0px var(--gray);
+   transition: height 0.6s ease-in-out;
+   height: var(--Event-Details-Height);
+}
+
+/********* Event Info & Handling screen Header*************/
+.EventDetailsWraper>header {
+   position: static;
+   display: flex;
+   flex-wrap: nowrap;
+   /* color:var(--textHeaderColor); */
+   background-color: var(--header-background);
+   /* min-height: 60px; */
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+
+}
+
+.eventHeaderIcon {
+   height: 30px;
+   width: 30px;
+   margin: 0 0.5rem;
+}
+
+/********* Event Info & Handling Main Tab *************/
+
+.EventDetails {
+   display: grid;
+   overflow-x: auto;
+   overflow-y: hidden;
+   height: calc(100% - var(--Screen-Header-Height));
+}
+.EventDetails hr {
+   border: 1px solid var(--light-gray);
+   margin: 0;
+}
+.EventDetailsRevreseFlow {
+   background-color: var(--Reverse-Flow-Background) !important; 
+   border:12px solid var(--red);
+}
+.EventDetailsRevreseFlow hr{
+   border: 1px solid var(--gray) !important;
+}
+
+.EventDetailsRevreseFlow button:not([disabled]){
+   background-color:var(--red);
+   color:var(--white);
+   border-color:var(--white);
+}
+.EventDetailsRevreseFlow button:not([disabled]):hover{
+   background-color:var(--white);
+   color:var(--red);
+   border-color:var(--red);
+}
+
+
+
+/* .EventDetails table td{
+   height: 100%;
+   width:100%
+   ;
+} */
+
+/********* Event Info & Handling -Close button *************/
+
+.EventDetailsWraper .dropUpMark {
+   display: flex;
+}
+
+/************************** Event Info + Handling + More Hydrant Events  *******************************/
+
+
+
+/******** Event Handling Parmeter Label *********/
+
+.detailsMiniLable {
+   color: var(--textActiveColor);
+}
+
+
+/******** Event Info (in Center tab) grid *********/
+.DetailsGrid {
+   display: grid;
+   grid-template-columns: auto 1fr;
+   column-gap: 1rem;
+   margin: 0 auto;
+   padding: 0 1rem;
+   max-width: max-content;
+
+}
+
+
+
+
+/******** Event Handling (in Left tab) grid *********/
+.EventHandle{
+vertical-align: top;
+}
+
+.HandleGrid {
+   display: grid;
+   padding: 0 1rem;
+   grid-template-columns: auto 1fr;
+   align-items: baseline;
+   row-gap: 0.5rem;
+}
+
+
+/******** Event Handling Confirm Button *********/
+.btnContainer {
+   display: flex;
+   justify-content: center;
+   align-content: flex-end;
+   align-items: center;
+   /* padding: 0.5rem; */
+}
+
+.btnEnd{
+   justify-content: end;
+   margin-inline-end:1.5rem;
+   margin-bottom:1rem;
+
+}
+
+
+
+
+
+/*********** Psudo Class for JavaScript Manipulation ************************/
+
+/* ********** Animated Hide Event Details Screen *********** */
+.collapse {
+   height: 0px;
+   /* min-height: 0; */
+   border: none;
+}
+
+/** Hidding empty Event Groups */
+.hide {
+   display: none;
+   overflow: hidden;
+}
+
+/** Hidding Vertical Line on tab select */
+.notVisible {
+   visibility: hidden;
+}
+
+
+/* Tab and Event Group select */
+:is(#rightBox, .EventDetailsWraper) input[type="radio"] {
+   display: none
+}
+
+
+
+/* *********************************************************************************
+                           Managment modules 
+********************************************************************************* */
+.screen {
+   margin-right: var(--Side-Bar-Width);
+   height: calc(100vh - var(--nav-height));
+   background-color: var(--canvas-background);
+   flex-grow: 1;
+   flex-shrink: 1;
+   border-style: none;
+   text-align: center;
+}
+
+.screen-header {
+   padding-left: var(--Side-Bar-Width);
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   align-items: center;
+   justify-items: center;
+   background-color: var(--header-background);
+   border-bottom: 2px solid var(--green);
+   height: var(--Screen-Header-Height);
+   margin-top: 35px;
+   /* position: relative; */
+}
+
+.header-title {
+   margin-inline: auto;
+   color: var(--white);
+   grid-column: 2;
+}
+
+.header-button-wraper {
+   display: flex;
+   justify-content: flex-end;
+   justify-self: flex-end;
+   align-items: baseline;
+   flex-grow: 0;
+   flex-shrink: 1;
+   grid-column: 3;
+}
+
+
+.search {
+   position: relative;
+}
+
+.search-icon {
+   position: absolute;
+   top: 25%;
+   left: 25px;
+   /* bottom:25px;
+right: 10px; */
+}
+
+input[type="search"]:not([value=""]):focus-within+.search-icon,
+input[type="search"]:not([value=""]):hover+.search-icon {
+
+   visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* *******************YESHURUN***************** */
+/* Main Header */
+.App>header {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   margin-right: var(--Side-Bar-Width);
+   margin-bottom: 3px;
+   height: var(--nav-height);
+
+}
+
+.topLine {
+   position: fixed;
+   height: 3px;
+   width: 100vw;
+   background-color: var(--green);
+   z-index: 13;
+
+}
+
+.compLogo {
+   background-color: var(--header-background);
+   border-radius: 0 0 10px 10px;
+   z-index: 13;
+   height: 74px;
+   margin: 0 20px;
+}
+
+.currentDet {
+   position: relative;
+   display: flex;
+   flex-direction: row;
+}
+
+.clientLogo {
+   margin-top: 4px;
+   margin-left: 6px;
+   max-height: 65px;
+   max-width: 150px;
+}
+
+.corpName {
+   opacity: 0.7;
+}
+
+.currentUser:hover {
+   opacity: 1;
+}
+
+.currentUser {
+   /* font-size: 1.4rem; */
+   /* font-weight: 600; */
+   flex-wrap: nowrap;
+   opacity: 0.6;
+   cursor: pointer;
+}
+
+.corps {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: space-around;
+}
+
+.userOptions {
+   position: absolute;
+   text-align: center;
+   top: 100px;
+   right: -0.5rem;
+   border-radius: 10px;
+   z-index: 4;
+   background-color: var(--box-background);
+   font-size: 1.2rem;
+   box-shadow: 0px 0px 4px 0px var(--gray);
+   /* width: 100%; */
+   padding:0.5rem;
+}
+
+.userOptions p {
+   font-size: 1.3rem;
+   font-weight: bold;
+   padding: 0.6rem 0;
+   opacity: 0.6;
+}
+
+
+.chooseCorp {
+   position: absolute;
+   top: 85%;
+   right: -5px;
+   z-index: 3;
+   background-color: var(--white);
+   border: 1px solid white;
+   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+   /* min-width: 100%; */
+   width: fit-content;
+   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.corpDet:hover,
+.userOptions p:hover {
+   cursor: pointer;
+   background-color: var(--active-eventGruop-background);
+}
+
+.corpDet div {
+   opacity: 0.6;
+   display: flex;
+   flex-direction: row;
+   align-items: flex-end;
+   gap: 1rem;
+   /* font-size: 1.3rem; */
+   padding: 1rem 0.5rem;
+}
+
+.corpDet div:hover,
+.userOptions p:hover {
+   opacity: 1;
+}
+
+.corpDet img {
+   width: 5rem;
+}
+
+.corpDet h3 {
+   font-size: 1.9em;
+}
+
+.corpDet hr,
+.userOptions hr {
+   height: 1px;
+   width: 103%;
+   border: 0;
+   background-color: rgb(30, 37, 50);
+   margin: auto;
+}
+
+.sideBar {
+   position: fixed;
+   top: 0;
+   right: 0;
+   height: 100vh;
+   width: var(--Side-Bar-Width);
+   background: var(--header-background);
+   z-index: 5;
+}
+
+.sideBar .top {
+   text-align: center;
+   margin-top: 0.6rem;
+}
+
+.menu-icon {
+   
+   cursor: pointer;
+}
+
+.menu {
+   position: fixed;
+   display: flex;
+   flex-direction: column;
+   width: max-content;
+   z-index: 4;
+   right: var(--Side-Bar-Width);
+   top: 0;
+   height: 100vh;
+   padding: 3vh 4vw;
+   /* border-left: 1px solid var(--gray); */
+   background-color: var(--menu-background);
+   font-size: 1.2rem;
+   transform: translateX(101%);
+   transition: all 0.4s ease-in-out;
+   box-shadow: 0px 0px 0px 0px transparent;
+}
+
+.slide-in {
+   transform: translateX(0%);
+   box-shadow: 0px 0px 6px 0px var(--gray);
+}
+
+.menuCategory {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.menuCategory h3 {
+   padding: 30px 0 3px 0;
+}
+
+
+.menuCategory a:hover {
+   color: var(--textActiveColor);
+   font-weight: bold;
+}
+
+.active p {
+   color: var(--green);
+}
+
+.rpn-notification-card-top {
+   flex-direction: row-reverse !important;
+   font-size: 0.8 rem !important;
+
+
+}
+
+.rpn-notification-card-bottom {
+
+   flex-direction: row !important;
+}
+
+.rpn-notification-card-bottom .message {
+   /* text-align: start !important; */
+   font-size: 1rem !important;
+   text-align: end !important;
+}
+
+label[disabled],
+label[disabled]:hover,
+*:disabled,
+*:disabled:hover {
+   transform: unset;
+   color: var(--gray);
+   background-color: var(--very-light-gray);
+   border-color: var(--gray) !important;
+   cursor: unset;
+}
+
+/* label[disabled]:hover{
+   color: var(--very-light-gray);
+   background-color: var(--gray);
+} */
+
+@media screen and (max-width:1050px) {
+
+   :root {
+      --Event-Details-Height: 300px;
+      --nav-height: 60px;
+      --Screen-Header-Height: 43px;
+      --Event-Hight: 2.75rem;
+
+   }
+
+   h1 {
+      font-size: 1.3rem;
+   }
+
+   h2 {
+      font-size: 1.2rem;
+   }
+
+   h3 {
+      font-size: 1.1rem;
+   }
+
+   h4 {
+      font-size: 1rem;
+   }
+
+   h5 {
+      font-size: 0.8rem;
+   }
+
+   fieldset>p,
+   label,
+   input[type] {
+      font-size: 0.8rem;
+   }
+
+
+   input,
+   textarea,
+   select,
+   option {
+      font-size: 0.8rem;
+      padding: 2px 4px;
+   }
+
+   button,
+   .btn {
+      font-size: 0.8rem;
+      padding: 2px 6px;
+   }
+
+   .EventDetails {
+      font-size: 0.8rem;
+   }
+
+   #rightBox {
+      max-width: calc(200px + var(--Side-Bar-Width));
+   }
+
+   .eventGroupHeader,
+   .tab {
+      font-size: 1rem;
+   }
+
+   .alert,
+   .event {
+      font-size: 0.8rem;
+   }
+
+   .eventGroupCounter {
+      font-size: 0.7rem;
+      height: 18px;
+      min-width: 18px;
+   }
+
+   .alertHydantId,
+   .eventHydantId {
+      font-size: 0.7rem;
+   }
+
+   .alertIcon,
+   .eventIcon,
+   .eventHeaderIcon {
+      height: 20px;
+      width: 20px;
+   }
+
+   .eventValue {
+      font-size: 0.6rem;
+   }
+
+   .eventRow {
+      height: 1.7rem;
+   }
+
+
+   #mapContainer {
+      width: calc(100% - 180px);
+      margin: 0px;
+      padding: 25px 5px 5px 5px;
+   }
+
+   .collapse {
+      height: 0px;
+   }
+
+
+   .compLogo {
+      height: 70px;
+      margin: 0 15px;
+   }
+
+   .clientLogo {
+      max-height: 55px;
+      max-width: 55px;
+   }
+
+   .EventDetailsWraper>header {
+      min-height: 0;
+   }
+
+
+   .window {
+      min-width: 200px;
+   }
+
+   .window>header {
+      font-size: unset;
+      line-height: 2em;
+      /* height: auto; */
+   }
+
+
+}
+
+
+@media screen and (max-width:600px) {
+
+   :root {
+      --nav-height: 60px;
+      --Screen-Header-Height: 43px;
+   }
+
+   #rightBox {
+      display: none;
+   }
+
+   #mapContainer {
+      width: 100%;
+      margin: 0px;
+      padding: 1px 51px 1px 1px;
+   }
+   .EventDetails{
+      display: flex;
+      flex-direction: column-reverse;
+      overflow: auto;
+   }
+
+   .compLogo {
+      height: 60px;
+      margin: 0 6px;
+   }
+
+   .clientLogo {
+      max-height: 45px;
+      max-width: 45px;
+   }
+
+}

@@ -1,0 +1,99 @@
+.parameters-header{
+    margin: 0 50px 0 0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color:var(--header-background);
+    border-bottom: 4px solid var(--green);
+    height: 60px;
+}
+
+.parameters-title{
+    color:var(--white);
+}
+
+.parameters{
+    margin: 0 50px 0 0;
+    /* display: flex; */
+    flex-direction: column;
+    align-content:center;
+    height: calc(100vh - 155px);
+    overflow-y: auto;
+}
+
+.parameters form{
+    /* display: flex; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-content: center;
+    column-gap: 15px;
+    row-gap: 15px;
+    width: 50%;
+    margin: auto;
+}
+
+.parameter{
+    /* overflow: hidden; */
+    margin: auto;
+    margin-top: 3rem;
+    height: -moz-fit-content;
+    height: fit-content;
+    color: var(--textColor);
+    font-size: 1.2rem;
+    /* min-height: fit-content; */
+    /* z-index: 3; */
+    border-width: 0;
+    transition: all 0.6s ease-in-out;
+    position: relative;
+    box-shadow: 0px 4px 4px 0px var(--gray);
+    background: var(--box-background);
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    padding: 0 0 10px 0;
+    min-width: 300px;
+}
+
+.parameter header{
+    /* position: static; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: var(--textHeaderColor);
+    background-color: var(--header-background);
+    display: flex;
+    font-size: 1.7rem;
+    line-height: 3.5rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.parameter label{
+    font-size:1.2rem;
+    padding: 5px 5px 5px 0;
+    align-self: center;
+}
+
+.parameter input{
+    max-width: 50%;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+    align-self: center;
+    text-align: center;
+    cursor:text;
+}
+
+.parameters button{
+    padding: 10px 50px;
+    margin: 3rem 0;
+    width: 100%;
+    display: block;
+}
+
+.break{
+    flex-basis: 100%;
+    height: 0;
+}

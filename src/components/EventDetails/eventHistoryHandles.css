@@ -1,0 +1,63 @@
+.eventHistory {
+    margin: 0 1rem;
+    height: inherit;
+    /* max-height: 100%; */
+}
+
+.eventHistoryGridHeader,
+.HandleHistoryRow {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;    
+    gap: 1rem;
+    padding: 0 1rem;
+    align-items: center;
+    justify-items: start;
+}
+.handleInfoBoxGrid{
+    display: grid;
+    grid-template-columns: auto 1fr;    
+    column-gap: 1rem;        
+    align-items: center;
+    justify-items: start;
+}
+
+.HandleHistoryRow {    
+    cursor: pointer;
+    min-height: 2rem;    
+    border-radius: 25px;
+    margin: 4px 0;
+    scroll-snap-align: start;    
+    transition: border-radius 0.3s ease;
+}
+
+.handleInfoBox {
+    display: none;
+}
+
+.showInfo:checked+.HandleHistoryRow>.handleInfoBox{
+    display: grid;
+    grid-column: 1/4;
+}
+
+.showInfo:checked+.HandleHistoryRow{
+    border-radius: 10px;
+    background-color: var(--light-gray);
+}
+
+.showInfo:checked+.HandleHistoryRow:hover,
+.HandleHistoryRow:hover{
+    background-color: var(--gray);
+}
+
+.eventHistoryGridWraper{
+max-height: 130px;
+overflow-y: auto;
+scroll-snap-type: y mandatory;
+}
+
+@media screen and (max-width:1050px) {
+    .eventHistoryGridWraper{
+        max-height: 110px;
+    }
+
+}
