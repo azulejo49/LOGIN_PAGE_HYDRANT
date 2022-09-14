@@ -1,9 +1,1 @@
-fetch('http://localhost:3000/api/get_token',{method:'post', headers:{'Content-Type': 'application/json'},body:JSON.stringify({username:"",password:"",subDomain:""})})
-        .then( res=> res.json() )
-        .then( data => console.log(data)  )
-
-******************************************************
-
-        fetch('https://i-jet.scienceart.co.il/api/get_token',{method:'post', headers:{'Content-Type': 'application/json'},body:JSON.stringify({username:"",password:"",subDomain:""})})
-        .then( res=> res.json() )
-        .then( data => console.log(data)  )
+hello
